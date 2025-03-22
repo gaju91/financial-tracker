@@ -40,10 +40,28 @@ export class TransactionManager {
         }
     }
 
-    addTransaction(
-        transactionData: Omit<Transaction, 'id' | 'date'>
-    ) {
+    addTransaction(transactionData: Omit<Transaction, "id" | "date">) {
         this.validateEntry(transactionData);
+    
+        const newTransaction = {
+            id: crypto.randomUUID(),
+            date: new Date(),
+            ...transactionData
+        };
+    
+        if (transactionData.type === "credit") {
+            this.finalBalance += transactionData.amount;
+        } else if (transactionData.type === "debit") {
+            if (this.finalBalance < transactionData.amount) {
+                throw new Error("Insufficient balance for debit transaction");
+            }
+            this.finalBalance -= transactionData.amount;
+        }
+    
+        this.transactions.unshift(newTransaction);
+        this.lastUpdated = new Date();
+    
+        return `Transaction added successfully with ID: ${newTransaction.id}`;
     }
 
     private validateEntry(transaction: Omit<Transaction, 'id' | 'date'>) {
