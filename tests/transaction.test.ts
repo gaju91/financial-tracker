@@ -28,5 +28,37 @@ describe('Testing the Transcation Flow', () => {
             expect(currentAccountDetails.transactions).toBeInstanceOf(Array);
             expect(currentAccountDetails.transactions.length).toBe(0);
         })
-    })
-})
+    });
+
+    describe('Testing add a transaction', () => {
+
+        test('A entry validation happens for parameters passed', () => {
+            expect(() =>
+                (transaction as any)
+                    .addTransaction({
+                        amount: -1,
+                        type: 'credit',
+                        description: 'test credit'
+                    })
+            ).toThrow('Amount should be a valid positive numeric value');
+
+            expect(() =>
+                (transaction as any)
+                    .addTransaction({
+                        amount: 100,
+                        type: 'random',
+                        description: 'test credit'
+                    })
+            ).toThrow(`Entry type shoule be either 'debit' or 'credit'`);
+
+            expect(() =>
+                (transaction as any)
+                    .addTransaction({
+                        amount: 100,
+                        type: 'credit',
+                        description: ''
+                    })
+            ).toThrow(`Description is mandatory`)
+        });
+    });
+});

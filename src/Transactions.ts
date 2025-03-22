@@ -39,4 +39,25 @@ export class TransactionManager {
                 .slice(offset, limit)
         }
     }
+
+    addTransaction(
+        transactionData: Omit<Transaction, 'id' | 'date'>
+    ) {
+        this.validateEntry(transactionData);
+    }
+
+    private validateEntry(transaction: Omit<Transaction, 'id' | 'date'>) {
+        const isNotANumber = isNaN(transaction.amount);
+        if(isNaN(transaction.amount) || transaction.amount < 0) {
+            throw new Error('Amount should be a valid positive numeric value');
+        }
+
+        if(!['debit', 'credit'].includes(transaction.type)) {
+           throw new Error(`Entry type shoule be either 'debit' or 'credit'`);
+        }
+
+        if(!transaction.description) {
+            throw new Error(`Description is mandatory`);
+        }
+    }
 }
