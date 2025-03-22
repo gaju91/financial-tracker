@@ -1,0 +1,35 @@
+{
+  "name": "financial-tracker",
+  "version": "1.0.0",
+  "description": "The **Financial Tracker** is a simple Learning Project for TDD with Node.",
+  "main": "server.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaju91/financial-tracker.git"
+  },
+  "keywords": [
+    "nodejs",
+    "jest",
+    "express",
+    "tdd",
+    "mongodb",
+    "test-driven",
+    "express",
+    "financial-tracker"
+  ],
+  "author": "Gajanand Sharma <gajanand742@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gaju91/financial-tracker/issues"
+  },
+  "homepage": "https://github.com/gaju91/financial-tracker#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.6",
+    "typescript": "^5.8.2"
+  }
+}
