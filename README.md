@@ -1,7 +1,8 @@
 # **Financial Tracker 📊**  
 
 ## **Overview**  
-The **Financial Tracker** is a simple Learning Project for TDD with Node.js.Here for practice we are building APIs that helps users track their income and expenses efficiently. It allows users to add transactions, retrieve them, update details, and delete transactions while maintaining an accurate balance.  
+The **Financial Tracker** is a simple Learning Project for TDD with Node.js.Here for practice we are building APIs that helps users track their income and expenses efficiently. It allows users to add transactions, 
+retrieve them, update details, and delete transactions while maintaining an accurate balance.  
 
 This project follows a **Test-Driven Development (TDD)** approach using **Jest** to ensure reliability and correctness.  
 
@@ -26,23 +27,19 @@ This project follows a **Test-Driven Development (TDD)** approach using **Jest**
 
 ### **1️⃣ Clone the Repository**  
 ```sh
-git clone https://github.com/yourusername/financial-tracker.git
+git clone https://github.com/gaju91/financial-tracker.git
 cd financial-tracker
 ```
 
-🚀 MORE COMING SOON
+### **2️⃣ Install Deps**  
+```sh
+npm install
+```
 
----
-
-## **API Endpoints**  
-
-✈️ Planning
----
-
-## **Test Cases**  
-
-🤔 Under thinking
-
+### **3️⃣ Run Tests**  
+```sh
+npm run test
+```
 ---
 
 ## **Contribution Guidelines**  
